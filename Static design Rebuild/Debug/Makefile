@@ -35,6 +35,7 @@ SUBDIRS :=  \
 ../AAL/Steering \
 ../ECUAL/LCD \
 ../ECUAL/Motor \
+../ECUAL/LED \
 ../ECUAL/US \
 ../ECUAL/SWdelay \
 ../Infrastructure \
@@ -42,11 +43,13 @@ SUBDIRS :=  \
 ../MCAL \
 ../MCAL/DIO \
 ../MCAL/ICU \
+../MCAL/LCD \
 ../MCAL/PWM \
 ../MCAL/PushButtons \
 ../MCAL/Timer \
 ../ECUAL \
 ../AAL \
+../RTOS \
 ../SL \
 ../SL/SOS
 
@@ -56,6 +59,8 @@ C_SRCS +=  \
 ../AAL/car_sm/car_sm.c \
 ../AAL/Steering/Steering.c \
 ../ECUAL/LCD/LCD.c \
+../ECUAL/LED/gpio.c \
+../ECUAL/LED/led.c \
 ../ECUAL/Motor/Motor.c \
 ../ECUAL/Motor/Motor_Config.c \
 ../ECUAL/SWdelay/softwareDelay.c \
@@ -66,14 +71,25 @@ C_SRCS +=  \
 ../MCAL/DIO/DIO_config.c \
 ../MCAL/ICU/ICU.c \
 ../MCAL/ICU/ICU_Config.c \
+../MCAL/LCD/LCD.c \
 ../MCAL/PushButtons/pushButton.c \
 ../MCAL/PWM/PWM.c \
 ../MCAL/PWM/PWM_Config.c \
 ../MCAL/Timer/timer.c \
 ../MCAL/Timer/Timer_Config.c \
+../RTOS/croutine.c \
+../RTOS/event_groups.c \
+../RTOS/heap_1.c \
+../RTOS/list.c \
+../RTOS/port.c \
+../RTOS/queue.c \
+../RTOS/stream_buffer.c \
+../RTOS/tasks.c \
+../RTOS/timers.c \
 ../SL/SOS/SOS.c \
 ../SL/SOS/SOS_Config.c \
-../main.c
+../userStory1.c \
+../userStory2.c
 
 
 PREPROCESSING_SRCS += 
@@ -86,6 +102,8 @@ OBJS +=  \
 AAL/car_sm/car_sm.o \
 AAL/Steering/Steering.o \
 ECUAL/LCD/LCD.o \
+ECUAL/LED/gpio.o \
+ECUAL/LED/led.o \
 ECUAL/Motor/Motor.o \
 ECUAL/Motor/Motor_Config.o \
 ECUAL/SWdelay/softwareDelay.o \
@@ -96,20 +114,33 @@ MCAL/DIO/DIO.o \
 MCAL/DIO/DIO_config.o \
 MCAL/ICU/ICU.o \
 MCAL/ICU/ICU_Config.o \
+MCAL/LCD/LCD.o \
 MCAL/PushButtons/pushButton.o \
 MCAL/PWM/PWM.o \
 MCAL/PWM/PWM_Config.o \
 MCAL/Timer/timer.o \
 MCAL/Timer/Timer_Config.o \
+RTOS/croutine.o \
+RTOS/event_groups.o \
+RTOS/heap_1.o \
+RTOS/list.o \
+RTOS/port.o \
+RTOS/queue.o \
+RTOS/stream_buffer.o \
+RTOS/tasks.o \
+RTOS/timers.o \
 SL/SOS/SOS.o \
 SL/SOS/SOS_Config.o \
-main.o
+userStory1.o \
+userStory2.o
 
 
 OBJS_AS_ARGS +=  \
 AAL/car_sm/car_sm.o \
 AAL/Steering/Steering.o \
 ECUAL/LCD/LCD.o \
+ECUAL/LED/gpio.o \
+ECUAL/LED/led.o \
 ECUAL/Motor/Motor.o \
 ECUAL/Motor/Motor_Config.o \
 ECUAL/SWdelay/softwareDelay.o \
@@ -120,20 +151,33 @@ MCAL/DIO/DIO.o \
 MCAL/DIO/DIO_config.o \
 MCAL/ICU/ICU.o \
 MCAL/ICU/ICU_Config.o \
+MCAL/LCD/LCD.o \
 MCAL/PushButtons/pushButton.o \
 MCAL/PWM/PWM.o \
 MCAL/PWM/PWM_Config.o \
 MCAL/Timer/timer.o \
 MCAL/Timer/Timer_Config.o \
+RTOS/croutine.o \
+RTOS/event_groups.o \
+RTOS/heap_1.o \
+RTOS/list.o \
+RTOS/port.o \
+RTOS/queue.o \
+RTOS/stream_buffer.o \
+RTOS/tasks.o \
+RTOS/timers.o \
 SL/SOS/SOS.o \
 SL/SOS/SOS_Config.o \
-main.o
+userStory1.o \
+userStory2.o
 
 
 C_DEPS +=  \
 AAL/car_sm/car_sm.d \
 AAL/Steering/Steering.d \
 ECUAL/LCD/LCD.d \
+ECUAL/LED/gpio.d \
+ECUAL/LED/led.d \
 ECUAL/Motor/Motor.d \
 ECUAL/Motor/Motor_Config.d \
 ECUAL/SWdelay/softwareDelay.d \
@@ -144,20 +188,33 @@ MCAL/DIO/DIO.d \
 MCAL/DIO/DIO_config.d \
 MCAL/ICU/ICU.d \
 MCAL/ICU/ICU_Config.d \
+MCAL/LCD/LCD.d \
 MCAL/PushButtons/pushButton.d \
 MCAL/PWM/PWM.d \
 MCAL/PWM/PWM_Config.d \
 MCAL/Timer/timer.d \
 MCAL/Timer/Timer_Config.d \
+RTOS/croutine.d \
+RTOS/event_groups.d \
+RTOS/heap_1.d \
+RTOS/list.d \
+RTOS/port.d \
+RTOS/queue.d \
+RTOS/stream_buffer.d \
+RTOS/tasks.d \
+RTOS/timers.d \
 SL/SOS/SOS.d \
 SL/SOS/SOS_Config.d \
-main.d
+userStory1.d \
+userStory2.d
 
 
 C_DEPS_AS_ARGS +=  \
 AAL/car_sm/car_sm.d \
 AAL/Steering/Steering.d \
 ECUAL/LCD/LCD.d \
+ECUAL/LED/gpio.d \
+ECUAL/LED/led.d \
 ECUAL/Motor/Motor.d \
 ECUAL/Motor/Motor_Config.d \
 ECUAL/SWdelay/softwareDelay.d \
@@ -168,14 +225,25 @@ MCAL/DIO/DIO.d \
 MCAL/DIO/DIO_config.d \
 MCAL/ICU/ICU.d \
 MCAL/ICU/ICU_Config.d \
+MCAL/LCD/LCD.d \
 MCAL/PushButtons/pushButton.d \
 MCAL/PWM/PWM.d \
 MCAL/PWM/PWM_Config.d \
 MCAL/Timer/timer.d \
 MCAL/Timer/Timer_Config.d \
+RTOS/croutine.d \
+RTOS/event_groups.d \
+RTOS/heap_1.d \
+RTOS/list.d \
+RTOS/port.d \
+RTOS/queue.d \
+RTOS/stream_buffer.d \
+RTOS/tasks.d \
+RTOS/timers.d \
 SL/SOS/SOS.d \
 SL/SOS/SOS_Config.d \
-main.d
+userStory1.d \
+userStory2.d
 
 
 OUTPUT_FILE_PATH +=Static\ design\ Rebuild.elf
@@ -200,6 +268,18 @@ AAL/Steering/Steering.o: ../AAL/Steering/Steering.c
 	@echo Finished building: $<
 
 ECUAL/LCD/LCD.o: ../ECUAL/LCD/LCD.c
+	@echo Building file: $<
+	@echo Invoking: AVR/GNU C Compiler : (AVR_8_bit_GNU_Toolchain_3.4.1_830) 4.6.2
+	$(QUOTE)C:\Program Files (x86)\Atmel\Atmel Studio 6.0\extensions\Atmel\AVRGCC\3.4.1.95\AVRToolchain\bin\avr-gcc.exe$(QUOTE) -funsigned-char -funsigned-bitfields -O1 -fpack-struct -fshort-enums -g2 -Wall -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"  -mmcu=atmega32a   -o"$@" "$<" 
+	@echo Finished building: $<
+
+ECUAL/LED/gpio.o: ../ECUAL/LED/gpio.c
+	@echo Building file: $<
+	@echo Invoking: AVR/GNU C Compiler : (AVR_8_bit_GNU_Toolchain_3.4.1_830) 4.6.2
+	$(QUOTE)C:\Program Files (x86)\Atmel\Atmel Studio 6.0\extensions\Atmel\AVRGCC\3.4.1.95\AVRToolchain\bin\avr-gcc.exe$(QUOTE) -funsigned-char -funsigned-bitfields -O1 -fpack-struct -fshort-enums -g2 -Wall -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"  -mmcu=atmega32a   -o"$@" "$<" 
+	@echo Finished building: $<
+
+ECUAL/LED/led.o: ../ECUAL/LED/led.c
 	@echo Building file: $<
 	@echo Invoking: AVR/GNU C Compiler : (AVR_8_bit_GNU_Toolchain_3.4.1_830) 4.6.2
 	$(QUOTE)C:\Program Files (x86)\Atmel\Atmel Studio 6.0\extensions\Atmel\AVRGCC\3.4.1.95\AVRToolchain\bin\avr-gcc.exe$(QUOTE) -funsigned-char -funsigned-bitfields -O1 -fpack-struct -fshort-enums -g2 -Wall -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"  -mmcu=atmega32a   -o"$@" "$<" 
@@ -265,6 +345,12 @@ MCAL/ICU/ICU_Config.o: ../MCAL/ICU/ICU_Config.c
 	$(QUOTE)C:\Program Files (x86)\Atmel\Atmel Studio 6.0\extensions\Atmel\AVRGCC\3.4.1.95\AVRToolchain\bin\avr-gcc.exe$(QUOTE) -funsigned-char -funsigned-bitfields -O1 -fpack-struct -fshort-enums -g2 -Wall -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"  -mmcu=atmega32a   -o"$@" "$<" 
 	@echo Finished building: $<
 
+MCAL/LCD/LCD.o: ../MCAL/LCD/LCD.c
+	@echo Building file: $<
+	@echo Invoking: AVR/GNU C Compiler : (AVR_8_bit_GNU_Toolchain_3.4.1_830) 4.6.2
+	$(QUOTE)C:\Program Files (x86)\Atmel\Atmel Studio 6.0\extensions\Atmel\AVRGCC\3.4.1.95\AVRToolchain\bin\avr-gcc.exe$(QUOTE) -funsigned-char -funsigned-bitfields -O1 -fpack-struct -fshort-enums -g2 -Wall -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"  -mmcu=atmega32a   -o"$@" "$<" 
+	@echo Finished building: $<
+
 MCAL/PushButtons/pushButton.o: ../MCAL/PushButtons/pushButton.c
 	@echo Building file: $<
 	@echo Invoking: AVR/GNU C Compiler : (AVR_8_bit_GNU_Toolchain_3.4.1_830) 4.6.2
@@ -295,6 +381,60 @@ MCAL/Timer/Timer_Config.o: ../MCAL/Timer/Timer_Config.c
 	$(QUOTE)C:\Program Files (x86)\Atmel\Atmel Studio 6.0\extensions\Atmel\AVRGCC\3.4.1.95\AVRToolchain\bin\avr-gcc.exe$(QUOTE) -funsigned-char -funsigned-bitfields -O1 -fpack-struct -fshort-enums -g2 -Wall -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"  -mmcu=atmega32a   -o"$@" "$<" 
 	@echo Finished building: $<
 
+RTOS/croutine.o: ../RTOS/croutine.c
+	@echo Building file: $<
+	@echo Invoking: AVR/GNU C Compiler : (AVR_8_bit_GNU_Toolchain_3.4.1_830) 4.6.2
+	$(QUOTE)C:\Program Files (x86)\Atmel\Atmel Studio 6.0\extensions\Atmel\AVRGCC\3.4.1.95\AVRToolchain\bin\avr-gcc.exe$(QUOTE) -funsigned-char -funsigned-bitfields -O1 -fpack-struct -fshort-enums -g2 -Wall -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"  -mmcu=atmega32a   -o"$@" "$<" 
+	@echo Finished building: $<
+
+RTOS/event_groups.o: ../RTOS/event_groups.c
+	@echo Building file: $<
+	@echo Invoking: AVR/GNU C Compiler : (AVR_8_bit_GNU_Toolchain_3.4.1_830) 4.6.2
+	$(QUOTE)C:\Program Files (x86)\Atmel\Atmel Studio 6.0\extensions\Atmel\AVRGCC\3.4.1.95\AVRToolchain\bin\avr-gcc.exe$(QUOTE) -funsigned-char -funsigned-bitfields -O1 -fpack-struct -fshort-enums -g2 -Wall -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"  -mmcu=atmega32a   -o"$@" "$<" 
+	@echo Finished building: $<
+
+RTOS/heap_1.o: ../RTOS/heap_1.c
+	@echo Building file: $<
+	@echo Invoking: AVR/GNU C Compiler : (AVR_8_bit_GNU_Toolchain_3.4.1_830) 4.6.2
+	$(QUOTE)C:\Program Files (x86)\Atmel\Atmel Studio 6.0\extensions\Atmel\AVRGCC\3.4.1.95\AVRToolchain\bin\avr-gcc.exe$(QUOTE) -funsigned-char -funsigned-bitfields -O1 -fpack-struct -fshort-enums -g2 -Wall -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"  -mmcu=atmega32a   -o"$@" "$<" 
+	@echo Finished building: $<
+
+RTOS/list.o: ../RTOS/list.c
+	@echo Building file: $<
+	@echo Invoking: AVR/GNU C Compiler : (AVR_8_bit_GNU_Toolchain_3.4.1_830) 4.6.2
+	$(QUOTE)C:\Program Files (x86)\Atmel\Atmel Studio 6.0\extensions\Atmel\AVRGCC\3.4.1.95\AVRToolchain\bin\avr-gcc.exe$(QUOTE) -funsigned-char -funsigned-bitfields -O1 -fpack-struct -fshort-enums -g2 -Wall -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"  -mmcu=atmega32a   -o"$@" "$<" 
+	@echo Finished building: $<
+
+RTOS/port.o: ../RTOS/port.c
+	@echo Building file: $<
+	@echo Invoking: AVR/GNU C Compiler : (AVR_8_bit_GNU_Toolchain_3.4.1_830) 4.6.2
+	$(QUOTE)C:\Program Files (x86)\Atmel\Atmel Studio 6.0\extensions\Atmel\AVRGCC\3.4.1.95\AVRToolchain\bin\avr-gcc.exe$(QUOTE) -funsigned-char -funsigned-bitfields -O1 -fpack-struct -fshort-enums -g2 -Wall -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"  -mmcu=atmega32a   -o"$@" "$<" 
+	@echo Finished building: $<
+
+RTOS/queue.o: ../RTOS/queue.c
+	@echo Building file: $<
+	@echo Invoking: AVR/GNU C Compiler : (AVR_8_bit_GNU_Toolchain_3.4.1_830) 4.6.2
+	$(QUOTE)C:\Program Files (x86)\Atmel\Atmel Studio 6.0\extensions\Atmel\AVRGCC\3.4.1.95\AVRToolchain\bin\avr-gcc.exe$(QUOTE) -funsigned-char -funsigned-bitfields -O1 -fpack-struct -fshort-enums -g2 -Wall -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"  -mmcu=atmega32a   -o"$@" "$<" 
+	@echo Finished building: $<
+
+RTOS/stream_buffer.o: ../RTOS/stream_buffer.c
+	@echo Building file: $<
+	@echo Invoking: AVR/GNU C Compiler : (AVR_8_bit_GNU_Toolchain_3.4.1_830) 4.6.2
+	$(QUOTE)C:\Program Files (x86)\Atmel\Atmel Studio 6.0\extensions\Atmel\AVRGCC\3.4.1.95\AVRToolchain\bin\avr-gcc.exe$(QUOTE) -funsigned-char -funsigned-bitfields -O1 -fpack-struct -fshort-enums -g2 -Wall -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"  -mmcu=atmega32a   -o"$@" "$<" 
+	@echo Finished building: $<
+
+RTOS/tasks.o: ../RTOS/tasks.c
+	@echo Building file: $<
+	@echo Invoking: AVR/GNU C Compiler : (AVR_8_bit_GNU_Toolchain_3.4.1_830) 4.6.2
+	$(QUOTE)C:\Program Files (x86)\Atmel\Atmel Studio 6.0\extensions\Atmel\AVRGCC\3.4.1.95\AVRToolchain\bin\avr-gcc.exe$(QUOTE) -funsigned-char -funsigned-bitfields -O1 -fpack-struct -fshort-enums -g2 -Wall -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"  -mmcu=atmega32a   -o"$@" "$<" 
+	@echo Finished building: $<
+
+RTOS/timers.o: ../RTOS/timers.c
+	@echo Building file: $<
+	@echo Invoking: AVR/GNU C Compiler : (AVR_8_bit_GNU_Toolchain_3.4.1_830) 4.6.2
+	$(QUOTE)C:\Program Files (x86)\Atmel\Atmel Studio 6.0\extensions\Atmel\AVRGCC\3.4.1.95\AVRToolchain\bin\avr-gcc.exe$(QUOTE) -funsigned-char -funsigned-bitfields -O1 -fpack-struct -fshort-enums -g2 -Wall -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"  -mmcu=atmega32a   -o"$@" "$<" 
+	@echo Finished building: $<
+
 SL/SOS/SOS.o: ../SL/SOS/SOS.c
 	@echo Building file: $<
 	@echo Invoking: AVR/GNU C Compiler : (AVR_8_bit_GNU_Toolchain_3.4.1_830) 4.6.2
@@ -307,7 +447,13 @@ SL/SOS/SOS_Config.o: ../SL/SOS/SOS_Config.c
 	$(QUOTE)C:\Program Files (x86)\Atmel\Atmel Studio 6.0\extensions\Atmel\AVRGCC\3.4.1.95\AVRToolchain\bin\avr-gcc.exe$(QUOTE) -funsigned-char -funsigned-bitfields -O1 -fpack-struct -fshort-enums -g2 -Wall -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"  -mmcu=atmega32a   -o"$@" "$<" 
 	@echo Finished building: $<
 
-./main.o: .././main.c
+./userStory1.o: .././userStory1.c
+	@echo Building file: $<
+	@echo Invoking: AVR/GNU C Compiler : (AVR_8_bit_GNU_Toolchain_3.4.1_830) 4.6.2
+	$(QUOTE)C:\Program Files (x86)\Atmel\Atmel Studio 6.0\extensions\Atmel\AVRGCC\3.4.1.95\AVRToolchain\bin\avr-gcc.exe$(QUOTE) -funsigned-char -funsigned-bitfields -O1 -fpack-struct -fshort-enums -g2 -Wall -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"  -mmcu=atmega32a   -o"$@" "$<" 
+	@echo Finished building: $<
+
+./userStory2.o: .././userStory2.c
 	@echo Building file: $<
 	@echo Invoking: AVR/GNU C Compiler : (AVR_8_bit_GNU_Toolchain_3.4.1_830) 4.6.2
 	$(QUOTE)C:\Program Files (x86)\Atmel\Atmel Studio 6.0\extensions\Atmel\AVRGCC\3.4.1.95\AVRToolchain\bin\avr-gcc.exe$(QUOTE) -funsigned-char -funsigned-bitfields -O1 -fpack-struct -fshort-enums -g2 -Wall -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"  -mmcu=atmega32a   -o"$@" "$<" 
@@ -327,6 +473,12 @@ AAL/Steering/%.o: ../AAL/Steering/%.c
 	@echo Finished building: $<
 
 ECUAL/LCD/%.o: ../ECUAL/LCD/%.c
+	@echo Building file: $<
+	@echo Invoking: AVR/GNU C Compiler : (AVR_8_bit_GNU_Toolchain_3.4.1_830) 4.6.2
+	$(QUOTE)C:\Program Files (x86)\Atmel\Atmel Studio 6.0\extensions\Atmel\AVRGCC\3.4.1.95\AVRToolchain\bin\avr-gcc.exe$(QUOTE) -funsigned-char -funsigned-bitfields -O1 -fpack-struct -fshort-enums -g2 -Wall -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"  -mmcu=atmega32a   -o"$@" "$<" 
+	@echo Finished building: $<
+
+ECUAL/LED/%.o: ../ECUAL/LED/%.c
 	@echo Building file: $<
 	@echo Invoking: AVR/GNU C Compiler : (AVR_8_bit_GNU_Toolchain_3.4.1_830) 4.6.2
 	$(QUOTE)C:\Program Files (x86)\Atmel\Atmel Studio 6.0\extensions\Atmel\AVRGCC\3.4.1.95\AVRToolchain\bin\avr-gcc.exe$(QUOTE) -funsigned-char -funsigned-bitfields -O1 -fpack-struct -fshort-enums -g2 -Wall -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"  -mmcu=atmega32a   -o"$@" "$<" 
@@ -368,6 +520,12 @@ MCAL/ICU/%.o: ../MCAL/ICU/%.c
 	$(QUOTE)C:\Program Files (x86)\Atmel\Atmel Studio 6.0\extensions\Atmel\AVRGCC\3.4.1.95\AVRToolchain\bin\avr-gcc.exe$(QUOTE) -funsigned-char -funsigned-bitfields -O1 -fpack-struct -fshort-enums -g2 -Wall -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"  -mmcu=atmega32a   -o"$@" "$<" 
 	@echo Finished building: $<
 
+MCAL/LCD/%.o: ../MCAL/LCD/%.c
+	@echo Building file: $<
+	@echo Invoking: AVR/GNU C Compiler : (AVR_8_bit_GNU_Toolchain_3.4.1_830) 4.6.2
+	$(QUOTE)C:\Program Files (x86)\Atmel\Atmel Studio 6.0\extensions\Atmel\AVRGCC\3.4.1.95\AVRToolchain\bin\avr-gcc.exe$(QUOTE) -funsigned-char -funsigned-bitfields -O1 -fpack-struct -fshort-enums -g2 -Wall -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"  -mmcu=atmega32a   -o"$@" "$<" 
+	@echo Finished building: $<
+
 MCAL/PushButtons/%.o: ../MCAL/PushButtons/%.c
 	@echo Building file: $<
 	@echo Invoking: AVR/GNU C Compiler : (AVR_8_bit_GNU_Toolchain_3.4.1_830) 4.6.2
@@ -381,6 +539,12 @@ MCAL/PWM/%.o: ../MCAL/PWM/%.c
 	@echo Finished building: $<
 
 MCAL/Timer/%.o: ../MCAL/Timer/%.c
+	@echo Building file: $<
+	@echo Invoking: AVR/GNU C Compiler : (AVR_8_bit_GNU_Toolchain_3.4.1_830) 4.6.2
+	$(QUOTE)C:\Program Files (x86)\Atmel\Atmel Studio 6.0\extensions\Atmel\AVRGCC\3.4.1.95\AVRToolchain\bin\avr-gcc.exe$(QUOTE) -funsigned-char -funsigned-bitfields -O1 -fpack-struct -fshort-enums -g2 -Wall -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"  -mmcu=atmega32a   -o"$@" "$<" 
+	@echo Finished building: $<
+
+RTOS/%.o: ../RTOS/%.c
 	@echo Building file: $<
 	@echo Invoking: AVR/GNU C Compiler : (AVR_8_bit_GNU_Toolchain_3.4.1_830) 4.6.2
 	$(QUOTE)C:\Program Files (x86)\Atmel\Atmel Studio 6.0\extensions\Atmel\AVRGCC\3.4.1.95\AVRToolchain\bin\avr-gcc.exe$(QUOTE) -funsigned-char -funsigned-bitfields -O1 -fpack-struct -fshort-enums -g2 -Wall -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"  -mmcu=atmega32a   -o"$@" "$<" 

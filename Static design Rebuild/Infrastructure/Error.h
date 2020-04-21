@@ -3,7 +3,7 @@
  *
  * Created: 24/02/2020 02:50:01 م
  *  Author: mo
- */ 
+ */
 
 
 #ifndef ERROR_H_
@@ -15,11 +15,18 @@
 #define MULTIPLE_INIT 6
 #define INVALID_PARM  8
 #define DIO_MODULE 20
+#define INVALID_DIRECTION 14
+#define INVALID_PORT 16
+#define INVALID_VALUE 18
+#define INVALID_TIMER_MODE 22
+#define INVALID_TIMER_CHANNEL 24
+#define INVALID_PRESCALER 26
+#define INVALID_FREQ 28
 #define TIMER_MODULE 30
 #define STOP_WITHOUT_START 10
 #define MULTIPLE_START 12
 #define TMU_MODULE 40
 #define BCM_MODULE 50
-
+#define PWM_MODULE 60
 
 #endif /* ERROR_H_ */

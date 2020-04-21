@@ -237,11 +237,12 @@ ERROR_STATUS Motor_Stop(uint8_t Motor_Number)
 
  ERROR_STATUS Motor_GetStatus(uint8_t Motor_Number, uint8_t* Mot_status)
  {
+	 uint8_t ret = 0;
 	 if(gsv_is_intialized == Motor_Number)
 		*Mot_status=1;
 	 else
 	 {
 		*Mot_status=0;
 	 }
-	 
+return ret;	 
  }

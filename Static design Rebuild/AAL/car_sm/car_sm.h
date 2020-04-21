@@ -39,6 +39,6 @@ ERROR_STATUS Car_SM_Init(void);
  * Description--: changes car state according to the ultrasonic input
  * -------------- And represents the motors output for each state
 */
-ERROR_STATUS Car_SM_Update(void);
+extern ERROR_STATUS Car_SM_Update(void);
 
 #endif /* CAR_SM_H_ */

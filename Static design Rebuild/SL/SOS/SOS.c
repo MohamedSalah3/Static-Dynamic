@@ -8,6 +8,8 @@
 #include "SOS.h"
 #include "../../Infrastructure/Intturpts Manger/Interrupts.h"
 #include "../../ECUAL/LCD/LCD.h"
+#include "../../AAL/car_sm/car_sm.h"
+#include "../../AAL/Steering/Steering.h"
 #define Buffer_Size 4
 uint8_t u8_Init_finished=0;
 

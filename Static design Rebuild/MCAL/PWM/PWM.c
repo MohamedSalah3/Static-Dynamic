@@ -20,9 +20,19 @@ static uint8_t sgl_is_started=0;
 
 ERROR_STATUS Pwm_Init(Pwm_Cfg_s *Pwm_Cfg)
 {uint8_t Ret=0;
+
+if(Pwm_Cfg==NULL)
+{
+
+Ret=NULL_PTR+PWM_MODULE;	
+
+}
+else{
+
 	switch(Pwm_Cfg->Channel)
 		{
 			case PWM_CH0:
+			
 			TCCR0|=T0_PWM_FAST |T0_NON_INVERTING;
 			Ret=E_OK;
 			break;
@@ -47,6 +57,9 @@ ERROR_STATUS Pwm_Init(Pwm_Cfg_s *Pwm_Cfg)
 			break;
 		}
 	sgl_Prescaler=Pwm_Cfg->Prescaler;
+
+}
+
 return Ret;
 	/*0xA000
 	TCCR1 |= en_mode | en_OC;
@@ -106,7 +119,7 @@ else if(Frequncy <= 122 && Frequncy > 31)
 	sgl_Prescaler=PWM_PRESCALER_256;
 else if(Frequncy <= 31 && Frequncy > 0)
 	sgl_Prescaler=PWM_PRESCALER_1024;
-else{Ret=E_NOK;}
+else{Ret+=INVALID_FREQ+PWM_MODULE;}
 switch(sgl_Prescaler)
 {
 	case PWM_PRESCALER_NO:
@@ -115,36 +128,40 @@ switch(sgl_Prescaler)
 		{
 			case PWM_CH0:
 			{
+				TCCR0&=0xf8;
 				TCCR0|=PWM_PRESCALER_NO_CONFIG;
-				Ret=E_OK;
+				Ret+=E_OK;
 				break;
 			}
 			case PWM_CH1A:
 			{
+			TCCR1&=0xfff8;	
 			TCCR1|=PWM_PRESCALER_NO_CONFIG;
-			Ret=E_OK;
+			Ret+=E_OK;
 			break;
 			}			
 			case PWM_CH1B:
-			{	TCCR1|=PWM_PRESCALER_NO_CONFIG;
-				Ret=E_OK;
+			{	TCCR1&=0xfff8;
+				TCCR1|=PWM_PRESCALER_NO_CONFIG;
+				Ret+=E_OK;
 				break;
 			}
 			case PWM_CH2:
-			{TCCR2|=PWM_PRESCALER_NO_CONFIG;
-				Ret=E_OK;
+			{	TCCR2&=0xf8;
+				TCCR2|=PWM_PRESCALER_NO_CONFIG;
+				Ret+=E_OK;
 				break;
 			}
 			
 			default:
 			{
-				Ret=E_NOK;
+				Ret+=INVALID_TIMER_CHANNEL+PWM_MODULE;
 				break;
 			}
 		
 		
 		}
-		Ret=E_OK;
+		Ret+=E_OK;
 		break;
 	}
 
@@ -155,31 +172,35 @@ switch(sgl_Prescaler)
 		{
 			case PWM_CH0:
 			{
+				TCCR0&=0xf8;
 				TCCR0|=PWM_PRESCALER_8_CONFIG;
-				Ret=E_OK;
+				Ret+=E_OK;
 				break;
 			}
 			case PWM_CH1A:
 			case PWM_CH1B:
-			{	TCCR1|=PWM_PRESCALER_8_CONFIG;
-				Ret=E_OK;
+			{	TCCR1&=0xfff8;
+				TCCR1|=PWM_PRESCALER_8_CONFIG;
+				Ret+=E_OK;
 				break;
 			}
 			case PWM_CH2:
-			{TCCR2|=PWM_PRESCALER_8_CONFIG;
-			Ret=E_OK;	
+			{
+			TCCR2&=0xf8;
+			TCCR2|=PWM_PRESCALER_8_CONFIG;
+			Ret+=E_OK;	
 				break;
 			}
 			
 			default:
 			{
-				Ret=E_NOK;
+				Ret+=INVALID_TIMER_CHANNEL+PWM_MODULE;
 				break;
 			}
 		
 		
 		}
-		Ret=E_OK;
+		Ret+=E_OK;
 		break;
 	}
 	
@@ -188,17 +209,19 @@ switch(sgl_Prescaler)
 		switch(Channel)
 		{
 			case PWM_CH2:
-			{TCCR2|=PWM_PRESCALER_32_CONFIG_T2;
-				Ret=E_OK;
+			{	TCCR2&=0xf8;
+				TCCR2|=PWM_PRESCALER_32_CONFIG_T2;
+				Ret+=E_OK;
 				break;
 			}
 			default:
 			{
-				Ret=E_NOK;
+				Ret+=INVALID_TIMER_CHANNEL+PWM_MODULE;
+				break;
 			}
 		
 		}
-		Ret=E_OK;
+		Ret+=E_OK;
 		break;
 	}
 	
@@ -208,30 +231,33 @@ switch(sgl_Prescaler)
 		{
 			case PWM_CH0:
 			{
+				TCCR0&=0xf8;
 				TCCR0|=PWM_PRESCALER_64_CONFIG;
-				Ret=E_OK;
+				Ret+=E_OK;
 				break;
 			}
 			case PWM_CH1A:
 			case PWM_CH1B:
-			{	TCCR1|=PWM_PRESCALER_64_CONFIG;
-				Ret=E_OK;
+			{	TCCR1&=0xfff8;
+				TCCR1|=PWM_PRESCALER_64_CONFIG;
+				Ret+=E_OK;
 				break;
 			}
 			case PWM_CH2:
-			{TCCR2|=PWM_PRESCALER_64_CONFIG_T2;
-				Ret=E_OK;
+			{	TCCR2&=0xf8;
+				TCCR2|=PWM_PRESCALER_64_CONFIG_T2;
+				Ret+=E_OK;
 				break;
 			}
 			default:
 			{
-				Ret=E_NOK;
+				Ret+=INVALID_TIMER_CHANNEL+PWM_MODULE;
 				break;
 			}
 		
 		
 		}
-		Ret=E_OK;
+		Ret+=E_OK;
 		break;
 	}
 	
@@ -241,30 +267,33 @@ switch(sgl_Prescaler)
 		{
 			case PWM_CH0:
 			{
+				TCCR0&=0xf8;
 				TCCR0|=PWM_PRESCALER_64_CONFIG;
-				Ret=E_OK;
+				Ret+=E_OK;
 				break;
 			}
 			case PWM_CH1A:
 			case PWM_CH1B:
-			{	TCCR1|=PWM_PRESCALER_64_CONFIG;
-				Ret=E_OK;
+			{	TCCR1&=0xfff8;
+				TCCR1|=PWM_PRESCALER_64_CONFIG;
+				Ret+=E_OK;
 				break;
 			}
 			case PWM_CH2:
-			{TCCR2|=PWM_PRESCALER_64_CONFIG_T2;
-				Ret=E_OK;
+			{	TCCR2&=0xf8;
+				TCCR2|=PWM_PRESCALER_64_CONFIG_T2;
+				Ret+=E_OK;
 				break;
 			}
 			default:
 			{
-				Ret=E_NOK;
+				Ret+=INVALID_TIMER_CHANNEL+PWM_MODULE;
 				break;
 			}
 		
 		
 		}
-		Ret=E_OK;
+		Ret+=E_OK;
 		break;
 	}
 	
@@ -273,18 +302,20 @@ switch(sgl_Prescaler)
 		switch(Channel)
 		{
 			case PWM_CH2:
-			{TCCR2|=PWM_PRESCALER_128_CONFIG_T2;
-				Ret=E_OK;
+			{
+				TCCR2&=0xf8;
+				TCCR2|=PWM_PRESCALER_128_CONFIG_T2;
+				Ret+=E_OK;
 				break;
 			}
 			default:
 			{
-				Ret=E_NOK;
+				Ret+=INVALID_TIMER_CHANNEL+PWM_MODULE;
 				break;
 			}
 		
 		}
-		Ret=E_OK;
+		Ret+=E_OK;
 		break;
 	}
 	
@@ -293,36 +324,39 @@ switch(sgl_Prescaler)
 		switch(Channel)
 		{
 			case PWM_CH0:
-			{
+			{	TCCR0&=0xf8;
 				TCCR0|=PWM_PRESCALER_1024_CONFIG;
-				Ret=E_OK;
+				Ret +=E_OK;
 				break;
 			}
 			case PWM_CH1A:
-			{	TCCR1|=PWM_PRESCALER_NO_CONFIG;
-				Ret=E_OK;
+			{TCCR1&=0xfff8;	
+			TCCR1|=PWM_PRESCALER_NO_CONFIG;
+				Ret +=E_OK;
 				break;
 			}
 			case PWM_CH1B:
-			{	TCCR1|=PWM_PRESCALER_1024_CONFIG;
-				Ret=E_OK;
+			{TCCR1&=0xfff8;	
+			TCCR1|=PWM_PRESCALER_1024_CONFIG;
+				Ret+=E_OK;
 				break;
 			}
 			case PWM_CH2:
-			{TCCR2|=PWM_PRESCALER_1024_CONFIG_T2;
-				Ret=E_OK;
+			{	TCCR2&=0xf8;
+				TCCR2|=PWM_PRESCALER_1024_CONFIG_T2;
+				Ret+=E_OK;
 				break;
 			}
 			default:
-			Ret=E_NOK;
+			Ret+=INVALID_TIMER_CHANNEL+PWM_MODULE;
 			break;
 		
 		}
-		Ret=E_OK;
+		Ret += E_OK;
 		break;
 	}
 	default:
-	Ret=E_NOK;
+	Ret +=INVALID_PRESCALER+PWM_MODULE;
 	break;
 
 	
@@ -387,7 +421,7 @@ ERROR_STATUS Pwm_Update(uint8_t Channel,uint8_t Duty,uint32_t Frequncy)
 uint8_t Ret=0;
 if (sgl_is_started == 1)
 {
-	Pwm_Start( Channel,Duty,Frequncy);
+Pwm_Start( Channel,Duty,Frequncy);
 Ret=E_OK;
 }else{Ret=E_NOK;}
 	

@@ -8,6 +8,10 @@ AAL\Steering\Steering.c
 
 ECUAL\LCD\LCD.c
 
+ECUAL\LED\gpio.c
+
+ECUAL\LED\led.c
+
 ECUAL\Motor\Motor.c
 
 ECUAL\Motor\Motor_Config.c
@@ -28,6 +32,8 @@ MCAL\ICU\ICU.c
 
 MCAL\ICU\ICU_Config.c
 
+MCAL\LCD\LCD.c
+
 MCAL\PushButtons\pushButton.c
 
 MCAL\PWM\PWM.c
@@ -38,9 +44,29 @@ MCAL\Timer\timer.c
 
 MCAL\Timer\Timer_Config.c
 
+RTOS\croutine.c
+
+RTOS\event_groups.c
+
+RTOS\heap_1.c
+
+RTOS\list.c
+
+RTOS\port.c
+
+RTOS\queue.c
+
+RTOS\stream_buffer.c
+
+RTOS\tasks.c
+
+RTOS\timers.c
+
 SL\SOS\SOS.c
 
 SL\SOS\SOS_Config.c
 
-main.c
+userStory1.c
+
+userStory2.c
 

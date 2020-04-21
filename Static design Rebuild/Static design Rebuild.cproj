@@ -85,6 +85,21 @@
     <Compile Include="ECUAL\LCD\LCD.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="ECUAL\LED\gpio.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="ECUAL\LED\gpio.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="ECUAL\LED\led.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="ECUAL\LED\led.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="ECUAL\LED\ledConfig.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="ECUAL\Motor\Motor.c">
       <SubType>compile</SubType>
     </Compile>
@@ -154,6 +169,12 @@
     <Compile Include="MCAL\ICU\ICU_Config.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="MCAL\LCD\LCD.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="MCAL\LCD\LCD.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="MCAL\PushButtons\pushButton.c">
       <SubType>compile</SubType>
     </Compile>
@@ -187,6 +208,90 @@
     <Compile Include="MCAL\Timer\Timer_Config.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="RTOS\croutine.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="RTOS\croutine.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="RTOS\deprecated_definitions.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="RTOS\event_groups.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="RTOS\event_groups.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="RTOS\FreeRTOS.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="RTOS\FreeRTOSConfig.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="RTOS\heap_1.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="RTOS\list.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="RTOS\list.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="RTOS\message_buffer.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="RTOS\mpu_prototypes.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="RTOS\mpu_wrappers.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="RTOS\port.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="RTOS\portable.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="RTOS\portmacro.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="RTOS\projdefs.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="RTOS\queue.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="RTOS\queue.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="RTOS\semphr.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="RTOS\StackMacros.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="RTOS\stack_macros.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="RTOS\stream_buffer.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="RTOS\stream_buffer.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="RTOS\task.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="RTOS\tasks.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="RTOS\timers.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="RTOS\timers.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="SL\SOS\SOS.c">
       <SubType>compile</SubType>
     </Compile>
@@ -199,7 +304,10 @@
     <Compile Include="SL\SOS\SOS_Config.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="main.c">
+    <Compile Include="userStory1.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="userStory2.c">
       <SubType>compile</SubType>
     </Compile>
   </ItemGroup>
@@ -208,6 +316,7 @@
     <Folder Include="AAL\Steering" />
     <Folder Include="ECUAL\LCD" />
     <Folder Include="ECUAL\Motor" />
+    <Folder Include="ECUAL\LED" />
     <Folder Include="ECUAL\US" />
     <Folder Include="ECUAL\SWdelay" />
     <Folder Include="Infrastructure" />
@@ -215,11 +324,13 @@
     <Folder Include="MCAL" />
     <Folder Include="MCAL\DIO" />
     <Folder Include="MCAL\ICU" />
+    <Folder Include="MCAL\LCD" />
     <Folder Include="MCAL\PWM" />
     <Folder Include="MCAL\PushButtons" />
     <Folder Include="MCAL\Timer" />
     <Folder Include="ECUAL" />
     <Folder Include="AAL" />
+    <Folder Include="RTOS" />
     <Folder Include="SL" />
     <Folder Include="SL\SOS" />
   </ItemGroup>

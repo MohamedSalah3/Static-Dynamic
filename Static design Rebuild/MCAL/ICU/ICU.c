@@ -15,6 +15,7 @@
  * 				  and enabling the global interrupt						  *
  **************************************************************************/
 #include "ICU.h"
+
 static volatile uint32_t u32_sgv_TimerVal=0;
 static volatile uint8_t u8_ovf_happend=0;
 static volatile uint32_t u32_Time_rising_edge=0;
@@ -124,7 +125,7 @@ switch(Icu_EdgeToEdge)
 return Ret;
 }
 void EXTI(void)
-{	u32_sgv_TimerVal=(uint32_t)TCNT0+((uint32_t)u8_ovf_happend*255);
+{	u32_sgv_TimerVal=TCNT1;
 	u8_ovf_happend=0;
 		if(READBIT(MCUCSR,6))
 		{
@@ -141,9 +142,5 @@ void EXTI(void)
 			/********************************/
 			}	
 
-//UDR=Timer_High;
-}/*
-void timer_interrupt(void)
-{
-	u8_ovf_happend=1;
-}*/
+
+}
